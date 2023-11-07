@@ -1,5 +1,4 @@
-# Defining a Class
-
+# Defining a Class3
 class Orange:
     def __init__(self, c, w):
         self.colour = c
