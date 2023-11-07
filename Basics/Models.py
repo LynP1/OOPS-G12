@@ -1,4 +1,5 @@
 # Toggle Switch
+
 class ToggleSwitch():
     def __init__(self):
         self.isOn = False
@@ -26,6 +27,7 @@ toggle_switch_1.toggle()
 toggle_switch_1.view_state()
 
 # Dimmer Switch
+
 class DimmerSwitch():
     def __init__(self):
         self.isOn = False
