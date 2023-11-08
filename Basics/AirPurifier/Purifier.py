@@ -54,18 +54,18 @@ class AirPurifier():
 
     def check_hep_flt(self):
         if self.hep_flt_days > 10:
-            print('HEP A Filter needs to be replaced:',self.hep_flt_days,'days old')
+            print('HEP A Filter needs to be REPLACED:',self.hep_flt_days,'days old')
         else:
-            print('HEP A Filter is good:',self.hep_flt_days,'days old')
+            print('HEP A Filter is GOOD:',self.hep_flt_days,'days old')
 
     def replace_hep_flt(self):
         self.hep_flt_days = 0
 
     def check_crb_flt(self):
         if self.crb_flt_days / 30 > 6:
-            print('Carbon Filter needs to be replaced:',round(self.crb_flt_days/30,2),'months old')
+            print('Carbon Filter needs to be REPLACED:',round(self.crb_flt_days/30,2),'months old')
         else:
-            print('Carbon Filter is good:',round(self.crb_flt_days/30,2),'months old')
+            print('Carbon Filter is GOOD:',round(self.crb_flt_days/30,2),'months old')
 
     def replace_crb_flt(self):
         self.crb_flt_days = 0
@@ -80,5 +80,10 @@ pf_1.pass_time(70)
 pf_1.check_crb_flt()
 pf_1.check_hep_flt()
 pf_1.pass_time(200)
+pf_1.replace_hep_flt()
+pf_1.check_crb_flt()
+pf_1.check_hep_flt()
+pf_1.pass_time(5)
+pf_1.replace_crb_flt()
 pf_1.check_crb_flt()
 pf_1.check_hep_flt()
