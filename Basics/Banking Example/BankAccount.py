@@ -1,5 +1,6 @@
 class Account():
-    def __init__(self, username, password, balance):
+    def __init__(self, bank, username, password, balance):
+        bank.append(self)
         self.username = username
         self.password = password
         self.balance  = balance
