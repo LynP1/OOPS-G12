@@ -13,6 +13,7 @@ for x in range(5):
     dvd_player_1.skip_forward_chapter()
 
 dvd_player_1.open_tray()
+dvd_player_1.eject_dvd()
 dvd_player_1.insert_dvd(Rush_Hour_2)
 dvd_player_1.close_tray()
 dvd_player_1.play_DVD()

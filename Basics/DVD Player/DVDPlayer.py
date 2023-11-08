@@ -52,11 +52,14 @@ class DVDPlayer():
     def insert_dvd(self,dvd):
         if self.is_on:
             if self.tray_is_open:
-                if type(dvd) == type(DVD('',0)):
-                    self.has_dvd = True
-                    self.dvd = dvd
-                    self.current_chapter = 0
-                    print('Inserted DVD:',dvd.name)
+                if not self.has_dvd:
+                    if type(dvd) == type(DVD('',0)):
+                        self.has_dvd = True
+                        self.dvd = dvd
+                        self.current_chapter = 0
+                        print('Inserted DVD:',dvd.name)
+                else:
+                    print('DVD Already in Tray')
             else:
                 print('Tray is closed')
         else:
@@ -65,10 +68,13 @@ class DVDPlayer():
     def eject_dvd(self):
         if self.is_on:
             if self.tray_is_open:
-                print('Ejected DVD:',self.dvd.name)
-                self.has_dvd = False
-                self.dvd = None
-                self.current_chapter = 0
+                if self.has_dvd:
+                    print('Ejected DVD:',self.dvd.name)
+                    self.has_dvd = False
+                    self.dvd = None
+                    self.current_chapter = 0
+                else:
+                    print('No DVD in Tray')
             else:
                 print('Tray is closed')
         else:
