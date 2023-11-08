@@ -50,12 +50,14 @@ class Account():
         print('Password:',self.password)
         print('Balance:',self.balance)
 
-acc_1 = Account('Page','Password',25000)
+Bank = []
+
+acc_1 = Account(Bank,'Page','Password',25000)
 acc_1.view_balance('Password')
 acc_1.withdrawl(15000,'Password')
 acc_1.deposit(5760,'Password')
 
-acc_2 = Account('Sonny','HMS7',2530000)
+acc_2 = Account(Bank,'Sonny','HMS7',2530000)
 acc_2.view_balance('HMS7')
-acc_2.transfer([acc_1,acc_2],'Page',500000,'HMS7')
+acc_2.transfer(Bank,'Page',500000,'HMS7')
 acc_1.view_balance('Password')
