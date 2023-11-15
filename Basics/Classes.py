@@ -1,6 +1,6 @@
 # Defining a Class
 
-class Orange:
+class Orange():
     def __init__(self, c, w):
         self.colour = c
         self.weight = w
@@ -19,7 +19,7 @@ print(tangerine.mold)
 
 #Another Example
 
-class Rectangle:
+class Rectangle():
     def __init__(self,l,w):
         self.length = l
         self.width = w
@@ -50,7 +50,7 @@ rec_3.identify()
 
 #Another Example
 
-class Door:
+class Door():
     def __init__(self, h, c, is_locked):
         self.height = h
         self.colour = c
