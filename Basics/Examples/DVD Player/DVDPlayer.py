@@ -53,7 +53,7 @@ class DVDPlayer():
         if self.is_on:
             if self.tray_is_open:
                 if not self.has_dvd:
-                    if type(dvd) == type(DVD('',0)):
+                    if isinstance(dvd,DVD):
                         self.has_dvd = True
                         self.dvd = dvd
                         self.current_chapter = 0
