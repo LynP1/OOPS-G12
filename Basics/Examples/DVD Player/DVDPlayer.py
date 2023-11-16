@@ -5,29 +5,19 @@ class DVD():
 
 class DVDPlayer():
     def __init__(self):
-        self.is_on = False
-        self.tray_is_open = False
-        self.has_dvd = False
-        self.play_state = False
-        self.current_chapter = 0
+        self.is_on,self.play_state,self.tray_is_open,self.has_dvd,self.current_chapter = False,False,False,False,0
 
     def power_on(self):
         self.is_on = True
         print('Power On')
     
     def power_off(self):
-        self.is_on = False
-        self.play_state = False
-        self.tray_is_open = False
-        self.current_chapter = 0
+        self.is_on,self.play_state,self.tray_is_open,self.current_chapter = False,False,False,0
         print('Power Off')
 
     def toggle_power(self):
         if self.is_on:
-            self.is_on = False
-            self.play_state = False
-            self.tray_is_open = False
-            self.current_chapter = 0
+            self.is_on,self.play_state,self.tray_is_open,self.current_chapter = False,False,False,0
             print('Power Off')
         else:
             self.is_on = True
@@ -35,9 +25,7 @@ class DVDPlayer():
 
     def open_tray(self):
         if self.is_on:
-            self.tray_is_open = True
-            self.play_state = False
-            self.current_chapter = 0
+            self.tray_is_open,self.play_state,self.current_chapter = True,False,0
             print('Opened Tray')
         else:
             print('Power is off')
@@ -54,10 +42,8 @@ class DVDPlayer():
             if self.tray_is_open:
                 if not self.has_dvd:
                     if isinstance(dvd,DVD):
-                        self.has_dvd = True
-                        self.dvd = dvd
-                        self.current_chapter = 0
-                        print('Inserted DVD:',dvd.name)
+                        self.has_dvd,self.dvd,self.current_chapter = True,dvd,0
+                        print('Inserted DVD: %s' %(self.dvd.name))
                 else:
                     print('DVD Already in Tray')
             else:
@@ -69,10 +55,8 @@ class DVDPlayer():
         if self.is_on:
             if self.tray_is_open:
                 if self.has_dvd:
-                    print('Ejected DVD:',self.dvd.name)
-                    self.has_dvd = False
-                    self.dvd = None
-                    self.current_chapter = 0
+                    print('Ejected DVD: %s' %(self.dvd.name))
+                    self.has_dvd,self.dvd,self.current_chapter = False,None,0
                 else:
                     print('No DVD in Tray')
             else:
@@ -85,7 +69,7 @@ class DVDPlayer():
             if self.tray_is_open == False:
                 if self.has_dvd:
                     self.play_state = True
-                    print('Now Playing:',self.dvd.name)
+                    print('Now Playing: %s' %(self.dvd.name))
                 else:
                     print('No DVD')
             else:
@@ -98,7 +82,7 @@ class DVDPlayer():
             if self.tray_is_open == False:
                 if self.has_dvd:
                     self.play_state = False
-                    print('Stopped Playing:',self.dvd.name)
+                    print('Stopped Playing: %s' %(self.dvd.name))
                 else:
                     print('No DVD')
             else:
@@ -111,7 +95,7 @@ class DVDPlayer():
             if self.has_dvd:
                 if self.current_chapter < self.dvd.chapters:
                     self.current_chapter += 1
-                    print('Skipped to Chapter',self.current_chapter)
+                    print('Skipped to Chapter %d' %(self.current_chapter))
                 else:
                     print('At Maximum Chapters')
             else:
@@ -124,7 +108,7 @@ class DVDPlayer():
             if self.has_dvd:
                 if self.current_chapter > 1:
                     self.current_chapter -= 1
-                    print('Skipped to Chapter',self.current_chapter)
+                    print('Skipped to Chapter %d' %(self.current_chapter))
                 else:
                     print('At Minimum Chapters')
             else:
