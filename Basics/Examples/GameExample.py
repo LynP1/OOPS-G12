@@ -31,3 +31,8 @@ class Enemy(Being):
         self.health = 100
         self.damage = 5
         self.drop_table = []
+
+class Animal(Being):
+    def __init__(self):
+        self.health = 100
+        self.drop_table = []
