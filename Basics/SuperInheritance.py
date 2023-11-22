@@ -8,10 +8,10 @@ class Rectangle():
 
     def area(self):
         return self.length*self.width
-    
+
     def perimeter(self):
         return ((2*self.length)+(2*self.width))
-    
+
 rec_1 = Rectangle(5,23)
 
 print(rec_1.type)
@@ -33,10 +33,10 @@ class Cube(Square):
 
     def volume(self):
         return self.length**3
-    
+
     def surface_area(self):
         return (self.area()*6)
-    
+
     def family_tree(self):
         return (self.type + '| Child of ' + super().type)
 
